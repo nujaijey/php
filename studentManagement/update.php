@@ -19,26 +19,31 @@
     // 设置字符集，设置为中文
     $characterSet = "SET NAMES UTF8";
     mysqli_query($dbhandle, $characterSet);
-    // 查询语句
-    $sql = "SELECT * FROM user WHERE id = {$id}";
-    // 执行查询
+    // 获取路由信息
+    $age = $_POST["age"];
+    $qq = $_POST["qq"];
+    $mobile = $_POST["mobile"];
+    $email = $_POST["email"];
+    $score = $_POST["score"];
+    // 修改语句
+    $sql = "UPDATE user SET age={$age},qq={$qq},mobile={$mobile},email='{$email}',score={$score} WHERE id={$id}";
+    // 执行修改
     $result = mysqli_query($dbhandle, $sql);
-    // 把结果变为数据
-    $dataInfo = mysqli_fetch_array($result);
     // 关闭数据库
     mysqli_close($dbhandle);
     ?>
+    <!-- 修改结果的显示信息 -->
     <div class="warp">
-        <h1><?php echo $dataInfo["name"] ?>的详细信息</h1>
-        <p>学号：<?php echo $dataInfo["id"] ?></p>
-        <p>姓名：<?php echo $dataInfo["name"] ?></p>
-        <p>年龄：<?php echo $dataInfo["age"] ?></p>
-        <p>QQ：<?php echo $dataInfo["qq"] ?></p>
-        <p>手机号码：<?php echo $dataInfo["mobile"] ?></p>
-        <p>邮箱：<?php echo $dataInfo["email"] ?></p>
-        <p>分数：<?php echo $dataInfo["score"] ?></p>
+        <h1>修改结果</h1>
+        <p>
+            <?php
+            if ($result == 1) {
+                echo "当前id为{$id}的信息修改成功";
+            } else {
+                echo "当前id为{$id}的信息修改失败，请重新操作";
+            }
+            ?>
+        </p>
         <a href="index.php">返回首页</a>
     </div>
 </body>
-
-</html>

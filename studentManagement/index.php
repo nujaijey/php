@@ -67,6 +67,7 @@
     ?>
     <div class="warp">
         <h1>学生管理系统</h1>
+        <button><a href="add.html">新增</a></button>
         <p>学生信息的清单列表：</p>
         <table>
             <tr>
@@ -83,7 +84,7 @@
                     <td><?php echo $row["id"] ?></td>
                     <td><?php echo $row["name"] ?></td>
                     <td><a href="info.php?id=<?php echo $row["id"] ?>">详细信息</a></td>
-                    <td><a href="update.php?id=<?php echo $row["id"] ?>">修改信息</a></td>
+                    <td><a href="updateForm.php?id=<?php echo $row["id"] ?>">修改信息</a></td>
                     <td><a href="delete.php?id=<?php echo $row["id"] ?>" name="delete">删除</a></td>
                 </tr>
             <?php } ?>
