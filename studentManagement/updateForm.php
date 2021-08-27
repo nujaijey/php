@@ -65,10 +65,10 @@
         <h1>修改学生</h1>
         <form action="update.php" method="post" id="formData">
             <p>
-                学号：<input type="text" value="<?php echo $dataInfo["id"] ?>" name="id" id="id" readonly>
+                学号：<input type="text" value="<?php echo $dataInfo["id"] ?>" name="id" id="id" disabled>
             </p>
             <p>
-                姓名：<input type="text" value="<?php echo $dataInfo["name"] ?>" name="name" id="name" readonly>
+                姓名：<input type="text" value="<?php echo $dataInfo["name"] ?>" name="name" id="name" disabled>
             </p>
             <p>
                 年龄：<input type="text" value="<?php echo $dataInfo["age"] ?>" name="age">
