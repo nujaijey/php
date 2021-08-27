@@ -21,7 +21,7 @@
     mysqli_query($dbhandle, $characterSet);
     // 删除语句
     $sql = "DELETE FROM user WHERE id = {$id}";
-    // 执行删除
+    // 执行删除，执行成功返回1
     $result = mysqli_query($dbhandle, $sql);
     // 关闭数据库
     mysqli_close($dbhandle);
@@ -31,6 +31,7 @@
         <h1>删除结果</h1>
         <p>
             <?php
+            // sql执行成功返回1
             if ($result == 1) {
                 echo "当前id为{$id}的信息删除成功";
             } else {
